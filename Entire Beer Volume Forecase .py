@@ -26,47 +26,40 @@ from sklearn.decomposition import PCA
 # Import raw data sets. Then, combine variables into one mother dataframe.
 #########################################################################
 # Import demographics of customers living in the region of each wholesaler.
-demographics = pd.read_csv(
-    r'C:\Users\beauw\OneDrive\Desktop\Machine Learning\OSU - Data Mining Project\demographics.csv')
+demographics = pd.read_csv()
 
 # Major events - such as holidays, Superbowl, big soccer games, etc.
-major_events = pd.read_csv(
-    r'C:\Users\beauw\OneDrive\Desktop\Machine Learning\OSU - Data Mining Project\event_calendar.csv')
+major_events = pd.read_csv()
 # Change YearMonth to Date/Time
 major_events['YearMonth'] = pd.to_datetime(
     major_events['YearMonth'], format='%Y%m')
 
 # Historical volume of each SKU
-historical_volume = pd.read_csv(
-    r'C:\Users\beauw\OneDrive\Desktop\Machine Learning\OSU - Data Mining Project\historical_volume.csv')
+historical_volume = pd.read_csv()
 # Change YearMonth to Date/Time
 historical_volume['YearMonth'] = pd.to_datetime(
     historical_volume['YearMonth'], format='%Y%m')
 
 # Overall industry soda sales
-industry_soda_sales = pd.read_csv(
-    r'C:\Users\beauw\OneDrive\Desktop\Machine Learning\OSU - Data Mining Project\industry_soda_sales.csv')
+industry_soda_sales = pd.read_csv()
 # Change YearMonth to Date/Time
 industry_soda_sales['YearMonth'] = pd.to_datetime(
     industry_soda_sales['YearMonth'], format='%Y%m')
 
 # Overall industry beer volume
-industry_volume = pd.read_csv(
-    r'C:\Users\beauw\OneDrive\Desktop\Machine Learning\OSU - Data Mining Project\industry_volume.csv')
+industry_volume = pd.read_csv()
 # Change Yearmonth to Date/Time
 industry_volume['YearMonth'] = pd.to_datetime(
     industry_volume['YearMonth'], format='%Y%m')
 
 # Any promotions matched up to Year Month
-price_sales_promotion = pd.read_csv(
-    r'C:\Users\beauw\OneDrive\Desktop\Machine Learning\OSU - Data Mining Project\price_sales_promotion.csv\price_sales_promotion.csv')
+price_sales_promotion = pd.read_csv()
 # Change YearMonth to Date/Time
 price_sales_promotion['YearMonth'] = pd.to_datetime(
     price_sales_promotion['YearMonth'], format='%Y%m')
 
 # Average temperature of YearMonth in relation to each wholesaler's region
-weather = pd.read_csv(
-    r'C:\Users\beauw\OneDrive\Desktop\Machine Learning\OSU - Data Mining Project\weather.csv')
+weather = pd.read_csv()
 # Change YearMonth to Date/Time
 weather['YearMonth'] = pd.to_datetime(weather['YearMonth'], format='%Y%m')
 
