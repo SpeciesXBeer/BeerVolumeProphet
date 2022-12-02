@@ -478,7 +478,7 @@ a1s1_prophet.add_regressor('Industry_Volume')
 a1s1_prophet.add_regressor('Soda_Volume')
 
 
-### Analyze best hyperparameter tuning for the a1s1 Meta Prophet
+### Add hyper parameter tuning.
 a1s1_param_grid = {  
     'changepoint_prior_scale': [1.6],
     'seasonality_prior_scale': [0.1],
@@ -490,7 +490,7 @@ a1s1_param_grid = {
 a1s1_all_params = [dict(zip(a1s1_param_grid.keys(), 
                                 a1s1)) for a1s1 in itertools.product(*a1s1_param_grid.values())]
 
-# Use cross validation to evaluate all Agency 1 and SKU 1 parameters 
+# Implement all parameters into algorithm
 for a1s1params in a1s1_all_params:
     a1s1_prophet = Prophet(**a1s1params).fit(a1s1_prophet_feed) 
 
