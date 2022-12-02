@@ -18,7 +18,7 @@ weather_mapes = []  # Store the MAPEs for each params here
 for weatherparams in weather_all_params:
     weather_prophet = Prophet(**weatherparams).fit(prophet_feed_weather) 
     # Fit model with given params
-    weather_crossval = cross_validation(weather_prophet, period='31 days', horizon = '31 days')
+    weather_crossval = cross_validation(weather_prophet, period='31 days', horizon = '365 days')
     weather_performance = performance_metrics(weather_crossval, rolling_window=1)
     weather_mapes.append(weather_performance['mape'].values[0])
 weather_tuning_results = pd.DataFrame(weather_all_params)
