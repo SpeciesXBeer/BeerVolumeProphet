@@ -489,9 +489,8 @@ a1s1_param_grid = {
 # Generate all combinations of parameters, for a1s1 Prophet
 a1s1_all_params = [dict(zip(a1s1_param_grid.keys(), 
                                 a1s1)) for a1s1 in itertools.product(*a1s1_param_grid.values())]
-#a1s1_mapes = []  # Store the RMSEs for each params here
-# Use cross validation to evaluate all Agency 1 and SKU 1 parameters 
 
+# Use cross validation to evaluate all Agency 1 and SKU 1 parameters 
 for a1s1params in a1s1_all_params:
     a1s1_prophet = Prophet(**a1s1params).fit(a1s1_prophet_feed) 
 
