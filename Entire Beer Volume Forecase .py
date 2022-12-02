@@ -491,18 +491,9 @@ a1s1_all_params = [dict(zip(a1s1_param_grid.keys(),
                                 a1s1)) for a1s1 in itertools.product(*a1s1_param_grid.values())]
 #a1s1_mapes = []  # Store the RMSEs for each params here
 # Use cross validation to evaluate all Agency 1 and SKU 1 parameters 
-#Remove/swap hastags below to cross evaluate numerous variables in
-#changepoint, seasonality, and range in param grid above.
+
 for a1s1params in a1s1_all_params:
     a1s1_prophet = Prophet(**a1s1params).fit(a1s1_prophet_feed) 
-    # Fit model with given params
-    #a1s1_crossval = cross_validation(a1s1_prophet, period='31 days', horizon = '31 days')
-    #a1s1_performance = performance_metrics(a1s1_crossval, rolling_window=1)
-    #a1s1_mapes.append(a1s1_performance['mape'].values[0])
-#a1s1_tuning_results = pd.DataFrame(a1s1_all_params)
-#a1s1_tuning_results['mape'] = a1s1_mapes
-#best_a1s1_params = a1s1_all_params[np.argmin(a1s1_mapes)]
-#print(best_a1s1_params)
 
 a1s1forecast = a1s1_prophet.predict(Futures_df)
 #Plot the overall volume prediction from a1s1 Prophet
