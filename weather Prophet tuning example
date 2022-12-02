@@ -1,5 +1,5 @@
 
-#Below, there are 3 values for each prior scale adjustment, and the code will run cross validation on the a1s1 final Prophet.  3 x 3 x 3 = 27 total runs.  
+#Below, there are 3 values for each prior scale adjustment, and the code will run cross validation on the Weather Prophet.  3 x 3 x 3 = 27 total runs.  
 #This can take a long time to run, so choose your hyper-parameter tuning wisely.
 
 #Build weather Meta Prophet model
