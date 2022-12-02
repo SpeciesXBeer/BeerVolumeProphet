@@ -1,0 +1,27 @@
+
+#Below, there are 3 values for each prior scale adjustment, and the code will run cross validation on the a1s1 final Prophet.  3 x 3 x 3 = 27 total runs.  
+#This can take a long time to run, so choose your hyper-parameter tuning wisely.
+
+#Build weather Meta Prophet model
+### Insert top rated parameters for weather model
+weather_param_grid = {  
+    'changepoint_prior_scale': [0.01, 0.1, 10],
+    'seasonality_prior_scale': [0.01, 0.1, 10],
+    'holidays_prior_scale': [0.0001, 0.1, 10],
+}
+# Generate all combinations of parameters, for weather Prophet
+weather_all_params = [dict(zip(weather_param_grid.keys(), 
+                                w)) for w in itertools.product(*weather_param_grid.values())]
+weather_mapes = []  # Store the MAPEs for each params here
+# Use cross validation to evaluate all weather
+#changepoint, seasonality, and range in param grid above.
+for weatherparams in weather_all_params:
+    weather_prophet = Prophet(**weatherparams).fit(prophet_feed_weather) 
+    # Fit model with given params
+    weather_crossval = cross_validation(weather_prophet, period='31 days', horizon = '31 days')
+    weather_performance = performance_metrics(weather_crossval, rolling_window=1)
+    weather_mapes.append(weather_performance['mape'].values[0])
+weather_tuning_results = pd.DataFrame(weather_all_params)
+weather_tuning_results['mape'] = weather_mapes
+best_weather_params = weather_all_params[np.argmin(weather_mapes)]
+print(best_weather_params)
