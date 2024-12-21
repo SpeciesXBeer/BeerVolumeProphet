@@ -95,8 +95,7 @@ mother_dataframe = pd.get_dummies(
 mother_dataframe.isnull().sum()
 
 # Import the testing data now...
-testing_dataframe = pd.read_csv(
-    r'C:\Users\beauw\OneDrive\Desktop\Machine Learning\OSU - Data Mining Project\volume_forecast.csv')
+testing_dataframe = pd.read_csv()
 
 # Visualize variables graphically that may relate with volume
 # plt.scatter(mother_dataframe['Avg_Max_Temp'],mother_dataframe['Volume'])
